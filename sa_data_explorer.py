@@ -37,7 +37,16 @@ else:
 explore_province = input("Would you like to explore another province? (yes/no): ")
 explore_province = explore_province.lower()  # Convert input to lowercase for case-insensitive matching
 
+#4. Ask the user if they want to explore another province and repeat the process if they say "yes". If they say "no", display a goodbye message and end the program.
 if explore_province == "yes":
-    print(province)
+    province = input("Please enter the name of another province to explore: ")
+    province = province.lower()  # Convert input to lowercase for case-insensitive matching
+    if province in province_data:
+        print(f"The population of {province.capitalize()} is approximately {province_data[province]['Population']:,}.")
+        print(f"The area of {province.capitalize()} is {province_data[province]['Area in km²']:,} km².")
+        print(f"The capital of {province.capitalize()} is {province_data[province]['Capital']}.")
+        print(f"The main languages spoken in {province.capitalize()} are {province_data[province]['Main Languages']}.")
+    else:
+        print("Sorry, that province is not in our database. Please check your spelling and try again.")
 else:
     print("Thank you for using the South African Data Explorer! Goodbye!")
